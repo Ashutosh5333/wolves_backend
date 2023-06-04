@@ -1,6 +1,7 @@
 const express = require("express")
 const cors = require("cors")
 const { connectiondatabase } = require("./config/db")
+const { router } = require("./Routes/UserRoute")
 
 
 const app = express()
@@ -10,6 +11,8 @@ app.use(cors({
     origin:"*"
   }))
   
+app.use(router)
+
   
   app.get("/" , (req,res) => {
       res.send("welcome home")
