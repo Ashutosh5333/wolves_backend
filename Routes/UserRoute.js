@@ -45,6 +45,18 @@ const router =  express.Router();
               }
     })
 
+    router.get("/todo/:prodId" , async (req,res) =>{
+      const prodId = req.params.prodId
+      
+      try{
+          const updatedproduct = await usermodel.findById({_id:prodId})
+          res.send(updatedproduct)
+      }catch(err){
+        console.log(err)
+        res.send({"msg" :"Something went wrongs"})
+      }
+})
+
 
 // ------------- Delete req ------------ //
 
